@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" type="x-icon" href="./images/4.jpg">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/f2fa24b968.js" crossorigin="anonymous"></script>
+</head>
+<body>
+</div>
+
+  <section class="landings">
+    <nav>
+      <div id="logo" ><a href="index.html"><img src="./images/logo.png" alt="StrangeFamily"></a></div>
+      <ul class="nav-links">  
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="story.html">Story</a></li>
+          <li><a href="roadmap.html" class="worker">Roadmap</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="team.html">Team</a></li>
+
+          <li class="tweet"><a href="https://twitter.com/metaman94225411" ><i class="fa-brands fa-twitter"></i></a></li>
+          <li class="dis"><a href="https://discord.com/channels/975068076934590524/975069968704086036"><i class="fa-brands fa-discord"></i></a></li>
+          <li class="opensea"><a href="https://opensea.io/collection/strangefamiily"><img src="./images/Logomark-Blue.png" class="opensea"></a></li>
+      </ul>
+      <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+      </div>
+  </nav>
+  </section>
+
+<div class="nop">
+<div id="roadmap__container">
+ <ul id="roadmap">
+   <div id="endpoint"></div>
+   <li class="__year">1</li>
+   <li class="__item __left">
+     <span class="connector"></span>
+     <div class="text">
+       <b>Fase-1</b>
+       <br/>
+       <span>getting ideas about Strange Family</span>
+       <hr />
+       <span>Analysis of the project and project design</span>
+     </div>
+   </li>
+   <li class="__year">2</li>
+   <li class="__item __right">
+     <span class="connector"></span>
+     <div class="text">
+       <b>Fase-2</b>
+       <br/>
+       <span>Starting the project</span>
+       <hr />
+       <span>- Opened the home page, instagram, twitter and discord.
+        - Collection part1 launch
+        
+        </span>
+     </div>
+   </li>
+   <li class="__item __left">
+     <span class="connector"></span>
+     <div class="text">
+       <b>Fase-3</b>
+       <br/>
+       <span>Strange Family Discovering</span>
+       <hr />
+       <span>-First people minting are going to be the first whitelisted for the second saison. <br> 
+         - After minting is completed the rarity level table
+        will be released. <br>
+        - we are going to drop a legendary member wich is super rare.</span>
+     </div>
+   </li>
+   <li class="__year">3</li>
+   <li class="__item __goals">
+     <div class="__prettify"></div>
+     <img class="__coin" src="https://www.yoloworld.io/wp-content/uploads/2018/02/coin.png" alt="">
+     <div class="__the_goals">
+       <b>Our goals before <br> 08/08/2022</b>
+       <br/>
+       <ul>
+         <li>to have the best community in the world</li>
+         <li>Launching the game</li>
+         <li>continuing to Grow up our community</li>
+         <li>Grow Strange Family Team</li>
+         <li>Working on new legendary Characters</li>
+       </ul>
+     </div>
+   </li>
+   <li class="__item __right">
+     <span class="connector"></span>
+     <div class="text">
+       <b>Fase-4</b>
+       <br/>
+       <span>Discover your luck</span>
+       <hr />
+       <span>- For holders with more than 10 nfts, they will have a chance to have a rare member</span>
+     </div>
+   </li>
+   <li class="__item __left">
+     <span class="connector"></span>
+     <div class="text">
+       <b>Fase-5</b>
+       <br/>
+       <span>Strange Family growing</span>
+       <hr />
+       <span>- Strange family game launch.
+       <br> - Collection part2 launch.</span>
+     </div>
+   </li>
+   
+</div>
+<script>
+    const state = {
+      items: [],
+      count: 0,
+      isDone: false
+    }
+
+    function drawLine(theBox) {
+      var connector = theBox.children[0];
+      var item = document.querySelector('.__item');
+      var text = document.querySelector('.__item .text');
+
+      var distanceBetweenItemAndLine = (item.offsetWidth / 2) - text.offsetWidth;
+
+      if (theBox.classList.contains('__left')) {
+        connector.style.left = text.offsetWidth + 'px';
+      } else {
+        connector.style.right = text.offsetWidth + 'px';
+      }
+
+      // Adds line after transition time specified in CSS is done
+      setTimeout(function () { connector.style.width = distanceBetweenItemAndLine + 'px'; }, 600);
+    }
+
+    function shouldItemAppear(item) {
+      let x = item.getBoundingClientRect().top;
+      if (x <= (window.innerHeight - item.offsetHeight)) {
+
+        //Is the item a goal?
+        //If so apply a different transformation
+        if (item.classList.contains('__goals')) {
+
+          //Bring in the coin first
+          item.children[1].style.opacity = '1'
+          //Then the rest
+          setTimeout(() => { item.children[2].style.opacity = '1'; }, 500);
+
+        } else {
+
+          item.style.transform = 'translateX(0)'
+          drawLine(item)
+
+        }
+
+        //Count items then call isDone
+        state.count++;
+        state.count == state.items.length ? state.isDone = true : null;
+      }
+    }
+
+    function isScrolling() {
+      //Stop firing
+      if (state.isDone == true) {
+        window.removeEventListener('scroll', isScrolling);
+        window.cancelAnimationFrame(isScrolling);
+        return;
+      }
+
+      shouldItemAppear(state.items[state.count]);
+      window.requestAnimationFrame(isScrolling);
+    }
+
+    function getAllItems() {
+      var scrollY = window.scrollY + window.innerHeight;
+      var items = document.querySelectorAll('#roadmap .__item');
+
+      for (var x = 0; x < items.length; x++) {
+        state.items.push(items[x])
+      }
+
+    }
+
+    function drawLinesMobile() {
+      var connectors = document.querySelectorAll('.__item .connector');
+      var item = document.querySelector('.__item');
+      var text = document.querySelector('.__item .text');
+
+      var distanceBetweenItemAndLine = (item.offsetWidth / 2) - text.offsetWidth;
+
+      for (var x = 0; x < connectors.length; x++) {
+        connectors[x].style.width = item.offsetWidth - text.offsetWidth + 'px';
+      }
+    }
+
+
+    function checkResolution() {
+      if (window.innerWidth > 850) {
+        getAllItems();
+        window.addEventListener('scroll', isScrolling);
+      } else {
+        drawLinesMobile();
+      }
+    }
+
+    window.addEventListener('load', checkResolution);
+    window.requestAnimationFrame(isScrolling);
+</script>
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" 
+    integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" 
+    crossorigin="anonymous"></script>
+    <script src="wow.js"></script>
+</html>

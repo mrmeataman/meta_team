@@ -1,0 +1,113 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <link rel="shortcut icon" type="x-icon" href="./images/4.jpg">
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Gallery</title>
+     <link rel="stylesheet" href="style.css">
+     <script src="https://kit.fontawesome.com/f2fa24b968.js" crossorigin="anonymous"></script>
+ </head>
+ <body>
+     <div class="container">
+
+            <section class="landings">
+                <nav>
+                    <div id="logo" ><a href="index.html"><img src="./images/logo.png" alt="StrangeFamily"></a></div>
+                    <ul class="nav-links">  
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="story.html">Story</a></li>
+                        <li><a href="roadmap.html">Roadmap</a></li>
+                        <li><a href="gallery.html" class="worker">Gallery</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li class="tweet"><a href="https://twitter.com/metaman94225411" ><i class="fa-brands fa-twitter"></i></a></li>
+                        <li class="dis"><a href="https://discord.com/channels/975068076934590524/975069968704086036"><i class="fa-brands fa-discord"></i></a></li>
+                        <li class="opensea"><a href="https://opensea.io/collection/strangefamiily"><img src="./images/Logomark-Blue.png" class="opensea"></a></li>
+                    </ul>
+                    <div class="burger">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </div>
+                </nav>
+            </section>
+
+
+
+        <div class="big">
+
+        <div class="row">
+            <div class="col">
+                <div class="text-box">
+                    <h5>Our Collection</h5>
+                    <h1><b>Best of</br> Strange <br>Family <br>Members</br></h1>
+                </div>
+
+                
+
+
+            </div>
+
+            <div class="col">
+                <div class="gallery-box">
+                    <img src="images/1.jpg" id="gallery">
+
+
+                    <ul>
+                        <li class="btn active">01</li>
+                        <li class="btn">02</li>
+                        <li class="btn">03</li>
+                        <li class="btn">04</li>
+                        <li class="btn">05</li>
+                        <li class="btn">06</li>
+                        <li class="btn">07</li>
+                        <li class="btn">08</li>
+                        <li class="btn">09</li>
+                        <li class="btn">10</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+<script>
+    var btn = document.getElementsByClassName("btn");
+    var gallery = document.getElementById("gallery");
+
+    var images = new Array(
+        "images/2.jpg",
+        "images/3.jpg",
+        "images/4.jpg",
+        "images/5.jpg",
+        "images/6.jpg",
+        "images/7.jpg",
+        "images/8.jpg",
+        "images/9.jpg",
+        "images/10.jpg",
+        "images/11.jpg",
+    );
+
+
+for(let i=0; i<btn.length; i++){
+btn[i].onclick = function()
+{
+    gallery.src = images[i];
+    let current = document.getElementsByClassName("active")
+    current[0].className = current[0].className.replace("active", "");
+    this.className += " active";
+};
+}
+
+</script>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" 
+    integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" 
+    crossorigin="anonymous"></script>
+    <script src="wow.js"></script>
+ </body>
+ </html>
