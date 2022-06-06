@@ -19,6 +19,13 @@ main{
 
 }
 
+html,body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
 
 
 nav{
@@ -869,23 +876,3 @@ h6{
 
 
 
-/*-------------extra-wiht----------*/
-@media only screen and (max-width:480px) {
-  html,body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
-}
-
-@media only screen and (max-width:900px) and (min-width:481px){
-  html,body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
-}
