@@ -10,14 +10,6 @@
 }
 
 
-
-
-html,body{
-    height: 100vh;
-    width: 100%;
-    overflow-x: hidden;
-}
-
 main{
     background: url('./images/jda.jpg');
     height: 100vh;
