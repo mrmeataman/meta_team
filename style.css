@@ -9,7 +9,7 @@
     font-family: 'Chakra Petch', sans-serif;
 }
 
-/*
+
 main{
     background: url('./images/jda2.jpg');
     height: 100vh;
@@ -19,16 +19,7 @@ main{
     background-position: center;
     background-attachment: fixed;
 }
-*/
 
-.backgroundimage{
-  background: url(./images/jda2.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    background-position: center;
-    background-attachment: fixed;
-}
 nav{
     display: flex;
     align-items: center;
